@@ -19,6 +19,14 @@ PODS:
   - EXPermissions (10.0.0):
     - UMCore
     - UMPermissionsInterface
+  - EXStructuredHeaders (1.1.1):
+    - UMCore
+  - EXUpdates (0.8.4):
+    - EXStructuredHeaders
+    - EXUpdatesInterface
+    - React-Core
+    - UMCore
+  - EXUpdatesInterface (0.2.2)
   - FBLazyVector (0.64.2)
   - FBReactNativeSpec (0.64.2):
     - RCT-Folly (= 2020.01.13.00)
@@ -374,6 +382,9 @@ DEPENDENCIES:
   - EXLinearGradient (from `../node_modules/expo-linear-gradient/ios`)
   - EXLocalization (from `../node_modules/expo-localization/ios`)
   - EXPermissions (from `../node_modules/expo-permissions/ios`)
+  - EXStructuredHeaders (from `../node_modules/expo-structured-headers/ios`)
+  - EXUpdates (from `../node_modules/expo-updates/ios`)
+  - EXUpdatesInterface (from `../node_modules/expo-updates-interface/ios`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
   - Flipper (= 0.75.1)
@@ -472,6 +483,12 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-localization/ios"
   EXPermissions:
     :path: "../node_modules/expo-permissions/ios"
+  EXStructuredHeaders:
+    :path: "../node_modules/expo-structured-headers/ios"
+  EXUpdates:
+    :path: "../node_modules/expo-updates/ios"
+  EXUpdatesInterface:
+    :path: "../node_modules/expo-updates-interface/ios"
   FBLazyVector:
     :path: "../node_modules/react-native/Libraries/FBLazyVector"
   FBReactNativeSpec:
@@ -575,6 +592,9 @@ SPEC CHECKSUMS:
   EXLinearGradient: f9ea3259f096b27008860ca50764184225dc71c9
   EXLocalization: 8b9463c81843da214476b541a27811dd885c9a76
   EXPermissions: 17d4846ad1880f6891c74ae58ca1acb43e47ed47
+  EXStructuredHeaders: e52b880264d15b8ad07d36670226c29476af6334
+  EXUpdates: af3ecad91644a171deaa310326e73b4e70f6963c
+  EXUpdatesInterface: b68e78b912a03fff7901a5f46ec200c45e3506a5
   FBLazyVector: e686045572151edef46010a6f819ade377dfeb4b
   FBReactNativeSpec: 70323e12a096b0836ecb157f231efa026606ab2d
   Flipper: d3da1aa199aad94455ae725e9f3aa43f3ec17021

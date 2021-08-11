@@ -1,4 +1,4 @@
-package com.helloworld;
+package com.OTAHack;
 
 import com.facebook.react.ReactActivity;
 

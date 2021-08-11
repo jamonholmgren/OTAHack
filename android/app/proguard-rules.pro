@@ -8,3 +8,7 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+-keepclassmembers class com.facebook.react.ReactInstanceManager {
+    private final com.facebook.react.bridge.JSBundleLoader mBundleLoader;
+}

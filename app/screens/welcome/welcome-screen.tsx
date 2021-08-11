@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, useState } from "react"
 import { View, ViewStyle, TextStyle, ImageStyle, SafeAreaView } from "react-native"
 import { StackScreenProps } from "@react-navigation/stack"
 import { observer } from "mobx-react-lite"
@@ -12,6 +12,9 @@ import {
 } from "../../components"
 import { color, spacing, typography } from "../../theme"
 import { NavigatorParamList } from "../../navigators"
+
+import * as Updates from "expo-updates"
+import { useEffect } from "react"
 
 const bowserLogo = require("./bowser.png")
 
@@ -90,6 +93,20 @@ export const WelcomeScreen: FC<StackScreenProps<NavigatorParamList, "welcome">> 
   ({ navigation }) => {
     const nextScreen = () => navigation.navigate("demo")
 
+    const [updateAvailable, setUpdateAvailable] = useState(false)
+    const [updateManifest, setUpdateManifest] = useState({})
+
+    useEffect(() => {
+      const timer = setInterval(async () => {
+        const update = await Updates.checkForUpdateAsync()
+        if (update.isAvailable) {
+          setUpdateAvailable(true)
+          setUpdateManifest(update.manifest || {})
+        }
+      }, 3000)
+      return () => clearInterval(timer)
+    }, [])
+
     return (
       <View testID="WelcomeScreen" style={FULL}>
         <GradientBackground colors={["#422443", "#281b34"]} />
@@ -102,14 +119,9 @@ export const WelcomeScreen: FC<StackScreenProps<NavigatorParamList, "welcome">> 
           </Text>
           <Text style={TITLE} preset="header" tx="welcomeScreen.readyForLaunch" />
           <Image source={bowserLogo} style={BOWSER} />
-          <Text style={CONTENT}>
-            This probably isn't what your app is going to look like. Unless your designer handed you
-            this screen and, in that case, congrats! You're ready to ship.
-          </Text>
-          <Text style={CONTENT}>
-            For everyone else, this is where you'll see a live preview of your fully functioning app
-            using Ignite.
-          </Text>
+          <Text style={CONTENT}>Expo update 5: {Updates.updateId}</Text>
+          <Text style={CONTENT}>Update available? {updateAvailable ? "true" : "false"}</Text>
+          <Text style={CONTENT}>Update manifest: {JSON.stringify(updateManifest || {})}</Text>
         </Screen>
         <SafeAreaView style={FOOTER}>
           <View style={FOOTER_CONTENT}>
